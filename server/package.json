@@ -1,24 +1,30 @@
 {
-    "name": "positivitweet",
-    "version": "1.0.0",
-    "license": "UNLICENSED",
-    "scripts": {
-      "start": "node ./src/server",
-      "dev": "nodemon --exec \"yarn run start\""
-    },
-    "nodemonConfig": {
-        "watch": [
-          "src"
-        ],
-        "delay": "3"
-    },
-    "dependencies": {
-      "body-parser": "^1.18.3",
-      "express": "^4.16.4",
-      "typescript": "^3.2.2"
-    },
-    "devDependencies": {
-        "tslint": "^5.11.0"
-    }
+  "name": "positivitweet",
+  "version": "1.0.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node -r ./config.js ./src/server",
+    "dev": "nodemon --exec \"yarn run start\""
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "delay": "3"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-session": "^1.15.6",
+    "http": "^0.0.0",
+    "passport": "^0.4.0",
+    "passport-twitter": "^1.0.4",
+    "socket.io": "^2.2.0",
+    "typescript": "^3.2.2"
+  },
+  "devDependencies": {
+    "tslint": "^5.11.0"
   }
-  
+}

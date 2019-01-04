@@ -1,6 +1,12 @@
 const express = require('express');
+const http = require('http');
+const passport = require('passport');
+const session = require('express-session');
+const cors = require('cors');
+const socketio = require('socket.io');
 const bodyParser = require('body-parser');
 const app = express();
+const TwitterStrategy = require('passport-twitter').Strategy
 const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
