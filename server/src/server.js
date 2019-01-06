@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(root));
   
     // Express serve up index.html file if it doesn't recognize route
-    this.app.use((req, res, next) => {
+    app.use((req, res, next) => {
         if (req.method === 'GET' && req.accepts('html') && !req.is('json') && !req.path.includes('.')) {
            res.sendFile('index.html', { root });
         } else next();
