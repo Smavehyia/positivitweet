@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === 'production') {
     // Exprees will serve up production assets
+    const path = require('path');
     const root = path.join(__dirname, '../../client/build');
     app.use(express.static(root));
   
