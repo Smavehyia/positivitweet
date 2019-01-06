@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node -r ./config.js ./src/server",
     "dev": "nodemon --exec \"yarn run start\"",
-    "prod": "yarn dev"
+    "prod": "yarn run start"
   },
   "nodemonConfig": {
     "watch": [

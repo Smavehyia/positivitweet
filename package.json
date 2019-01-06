@@ -12,15 +12,16 @@
     "server": "cd server && yarn dev",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "build-client": "cd client && yarn && yarn run build",
-    "build-server": "cd server && yarn && yarn dev",
-    "heroku-postbuild": "yarn run build-client && yarn run build-server"
+    "build-server": "cd server && yarn",
+    "heroku-postbuild": "yarn run build-client && yarn run build-server",
+    "start": "cd server && yarn prod"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Smavehyia/positivitweet.git"
   },
   "keywords": [],
-  "author": "Smavia",
+  "author": "",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/Smavehyia/positivitweet/issues"
