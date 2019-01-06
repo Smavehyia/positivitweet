@@ -22,7 +22,7 @@ if (process.env.NODE_ENV === 'production') {
            res.sendFile('index.html', { root });
         } else next();
       });
-
+    }
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
