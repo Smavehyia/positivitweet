@@ -8,4 +8,7 @@ const callbackURL =  process.env.CALLBACK_URL
   consumerSecret: process.env.TWITTER_SECRET,
   callbackURL
 } */
-require('dotenv').config()
+
+const filePath = path.resolve(process.cwd(), '.env')
+
+require('dotenv').config({ path: filePath })
