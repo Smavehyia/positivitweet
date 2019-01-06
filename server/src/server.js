@@ -11,6 +11,18 @@ const port = process.env.PORT || 5000;
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+if (process.env.NODE_ENV === 'production') {
+    // Exprees will serve up production assets
+    const root = path.join(__dirname, '../../client/build');
+    app.use(express.static(root));
+  
+    // Express serve up index.html file if it doesn't recognize route
+    this.app.use((req, res, next) => {
+        if (req.method === 'GET' && req.accepts('html') && !req.is('json') && !req.path.includes('.')) {
+           res.sendFile('index.html', { root });
+        } else next();
+      });
+
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
