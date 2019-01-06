@@ -7,8 +7,9 @@ import {
   } from 'react-router-dom'
 import './App.css';
 import Home from './Home/home'
+import {HomeRoute} from './Home/homeRoute'
 
-const API_URL = 'http://localhost:3000';
+const API_URL = process.env.NODE_ENV === 'production'? 'https://positivitweet.herokuapp.com/' : 'http://localhost:3000';
 const socket = io(API_URL);
 
 class App extends Component {
@@ -85,20 +86,11 @@ class App extends Component {
 render() {
     const { name, photo} = this.state.user
     const { disabled } = this.state
-
-    const Home = () => (
-        <div>
-            <h1>Positivitweet</h1>
-            <p>Find out the level of positivity demonstrated through your tweets by a click of a button. Begin the button whenever you're ready</p>
-            <button onClick={this.startAuth}>Let's go!</button>
-        </div>
-    )
     return (
      <Router>
       <div className="App">
-      <h1>{name}</h1>
-      {this.state.disabled? <button onClick={this.closeCard}>Close</button> : null}
-      <Route path="/" exact component={Home}/>
+      <HomeRoute path="/" exact component={Home} onClick={this.startAuth}/>
+      {disabled? <button onClick={this.closeCard}>Close</button> : null}
       </div>
       </Router> 
     );
