@@ -9,7 +9,7 @@ import './App.css';
 import Home from './Home/home'
 import {HomeRoute} from './Home/homeRoute'
 
-const API_URL = process.env.NODE_ENV === 'production'? 'https://positivitweet.herokuapp.com/' : 'http://localhost:3000';
+const API_URL = 'http://localhost:5000';
 const socket = io(API_URL);
 
 class App extends Component {
