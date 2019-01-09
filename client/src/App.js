@@ -9,7 +9,7 @@ import './App.css';
 import Home from './Home/home'
 import {HomeRoute} from './Home/homeRoute'
 
-const API_URL = process.env.NODE_ENV === 'production' ? 'https://positivitweet.herokuapp.com': 'http://localhost:5000';
+const API_URL = 'http://localhost:5000';
 const socket = io(API_URL);
 
 class App extends Component {
@@ -66,10 +66,10 @@ class App extends Component {
 
 
   callApi = async () => {
-    const response = await fetch('/api/hello');
-    const body = await response.json();
-    if (response.status !== 200) throw Error(body.message);
-    return body;
+    const response = await fetch('/twitter/callback');
+    // const body = await response.json();
+    if (response.status !== 200) throw Error("Error");
+    return ;
   };
   handleSubmit = async e => {
     e.preventDefault();
